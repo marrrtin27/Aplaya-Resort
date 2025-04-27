@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplaya - Room Details Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="room-detail.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <h1><a href="index.html">APLAYA BY POSITADI</a></h1>
+            <i class="fa-solid fa-bars"></i>
+            <nav class="nav">
+                <i class="fa-solid fa-xmark"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#">About</a></li>
+                    <li><a href="index.html#room">Rooms</a></li>
+                    <li><a href="index.html#contactus">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <section class="main">
+        <section class="room-leftside">
+            <img src="DeluxeRoom.png" alt="">
+            <section class="room-header-wrapper">
+                <section class="room-name-wrapper">
+                    <span class="room-name">
+                        Deluxe Room
+                    </span>
+                    <span class="rating-star">
+                        <span class="rating-number">5</span>
+                        <span class="stars">
+                            <ul>
+                                <li><i class="fa-solid fa-star"></i></li>
+                                <li><i class="fa-solid fa-star"></i></li>
+                                <li><i class="fa-solid fa-star"></i></li>
+                                <li><i class="fa-solid fa-star"></i></li>
+                                <li><i class="fa-solid fa-star"></i></li>
+                            </ul>
+                        </span>
+                    </span>
+                </section>
+                <section class="pricing-wrapper">
+                    <span class="pricing">From <span class="price">₱140</span>/night</span>
+                    <span class="btn-booknow"><a href="#">Book now <i class="fa-solid fa-arrow-right"></i></a></span>
+                </section>
+            </section>
+            <section class="included">
+                <span class="included-text"><i class="fa-solid fa-user"></i>Included</span>
+                <span class="included-list">
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-check"></i>Good for 2 person
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>Wifi
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>1 Bathroom
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check"></i>1 Bed
+                        </li>
+                    </ul>
+                </span>
+            </section>
+        </section>
+        <section class="room-rightside">
+            <section class="form">
+                <form action="#">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="text" id="phone" placeholder="Your Phone" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <input type="date" id="date" placeholder="" required>
+                    <input type="number" id="guest" placeholder="Guest" required>
+                    <textarea name="message" id="message"></textarea>
+                    <button type="button" onclick="SendEmail()">Book Now</button>
+                </form>
+            </section>
+        </section>
+    </section>
+    <footer>
+        <div class="wrapper">
+            <section class="links">
+                <div>
+                    <h2>Travenu</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#room">Rooms</a></li>
+                        <li><a href="#contactus">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Other Pages</h4>
+                    <ul>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Use</li>
+                        <li>Disclaimer</li>
+                        <li>FAQ</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>Jl. Niti Mandala, Renon, Bali 80225</li>
+                        <li>+123-456-789</li>
+                        <li>contact@domain.com</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="credit">
+                <p>Made by Lester Garan & Althea Caunceran</p>
+                <p>Copyright © 2024. All rights reserved.</p>
+            </section>
+        </div>
+
+    </footer>
+    <script src="index.js"></script>
+    <!-- SMTP JS -->
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        function SendEmail() {
+            let room = "Deluxe Room";
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let email = document.getElementById("email").value;
+            let date = document.getElementById("date").value;
+            let guest = document.getElementById("guest").value;
+            let message = document.getElementById("message").value;
+
+            let body = "Name: " + name + "</br>Phone Number: " + phone + "</br>Email: " + email + "</br>Subject: " + "</br>Date: " + date + "</br>Guest: " + guest + "</br>Message: " + message;
+
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "martinbriones27@gmail.com",
+                Password: "5C76ACC49580F5A94DE563114071ECCDC7FA",
+                To: 'martinbriones27@gmail.com',
+                From: "martinbriones27@gmail.com",
+                Subject: "Submission from " + room,
+                Body: body
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
+</body>
+
+</html>

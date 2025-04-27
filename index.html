@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplaya - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+</head>
+
+<body>
+    <div class="bg-wrapper">
+        <header>
+            <div class="wrapper">
+                <h1><a href="index.html">APLAYA BY POSITADI</a></h1>
+                <i class="fa-solid fa-bars"></i>
+                <nav class="nav">
+                    <i class="fa-solid fa-xmark"></i>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#">About</a></li>
+                        <li><a href="index.html#room">Rooms</a></li>
+                        <li><a href="index.html#contactus">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </header>
+        <main>
+            <div class="wrapper">
+                <section class="hero">
+                    <h1>Journey to Your <br>Dream Destination</h1>
+                    <p>
+                        The phrase conveys a sense of adventure and discovery, encouraging<br> travelers to step out of
+                        their
+                        comfort zones and embrace.
+                    </p>
+                    <button>Discover Now</button>
+                </section>
+
+            </div>
+
+        </main>
+    </div>
+
+
+    <section>
+        <div class="wrapper">
+            <section class="projects" id="room">
+                <h2>Our Rooms</h2>
+                <p>Explore our Rooms with a convinient ammenities will make you comfortable on your vacation</p>
+                <section class="room-list">
+
+
+                    <section class="card">
+                        <img src="DeluxeRoom.png" alt="">
+                        <div class="card-header">
+                            <h3>Deluxe Room</h3>
+                            <a href="room-detail.html">Inquiry Now!</a>
+                        </div>
+
+                    </section>
+                    <section class="card">
+                        <img src="DeluxeRoom.png" alt="">
+                        <div class="card-header">
+                            <h3>Deluxe Kubo</h3>
+                            <a href="room-detail.html">Inquiry Now!</a>
+                        </div>
+
+                    </section>
+                    <section class="card">
+                        <img src="DeluxeRoom.png" alt="">
+                        <div class="card-header">
+                            <h3>Deluxe Room</h3>
+                            <a href="room-detail.html">Inquiry Now!</a>
+                        </div>
+
+                    </section>
+                </section>
+
+            </section>
+            <section class="contact-us" id="contactus">
+                <div class="contact-us-leftside">
+                    <div>
+                        <h4>GET IN TOUCH</h4>
+                        <h1>DON'T HESITATE TO CONTACT US</h1>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-details">
+                            <h4>Gianyar, Bali</h4>
+                            <p>(+62) 361 154874</p>
+                            <p>contact@domain.com</p>
+                            <p>Jl. Sukawati Gianyar No.99, Bali 80571</p>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Gianyar, Bali</h4>
+                            <p>(+62) 361 154874</p>
+                            <p>contact@domain.com</p>
+                            <p>Jl. Sukawati Gianyar No.99, Bali 80571</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <form action="">
+                        <input type="text" placeholder="Your Name" id="name">
+                        <input type="text" placeholder="Your Email" id="email">
+                        <input type="text" placeholder="Subject" id="subject">
+                        <input type="text" placeholder="Your Message" id="message">
+                        <button type="button" onclick="SendEmail()">SEND MESSAGE</button>
+                    </form>
+                </div>
+
+            </section>
+        </div>
+    </section>
+    <footer>
+        <div class="wrapper">
+            <section class="links">
+                <div>
+                    <h2>Travenu</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#room">Rooms</a></li>
+                        <li><a href="#contactus">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Other Pages</h4>
+                    <ul>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Use</li>
+                        <li>Disclaimer</li>
+                        <li>FAQ</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>Jl. Niti Mandala, Renon, Bali 80225</li>
+                        <li>+123-456-789</li>
+                        <li>contact@domain.com</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="credit">
+                <p>Made by Lester Garan & Althea Caunceran</p>
+                <p>Copyright © 2024. All rights reserved.</p>
+            </section>
+        </div>
+
+    </footer>
+
+    <script src="index.js"></script>
+
+    <!-- SMTP JS -->
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        function SendEmail() {
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let subject = document.getElementById("subject").value;
+            let message = document.getElementById("message").value;
+
+            let body = "Name: " + name + "</br>Email: " + email + "</br>Subject: " + subject + "</br>Message: " + message;
+
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "martinbriones27@gmail.com",
+                Password: "5C76ACC49580F5A94DE563114071ECCDC7FA",
+                To: 'martinbriones27@gmail.com',
+                From: "martinbriones27@gmail.com",
+                Subject: "Submission from Contact Form",
+                Body: body
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
+</body>
+
+</html>
