@@ -104,12 +104,12 @@
                     </div>
                 </div>
                 <div>
-                    <form action="">
+                    <form action="" id="contactForm">
                         <input type="text" placeholder="Your Name" id="name">
                         <input type="text" placeholder="Your Email" id="email">
-                        <input type="text" placeholder="Subject" id="subject">
+                        <input type="text" placeholder="Your Phone Number" id="phonenumber">
                         <input type="text" placeholder="Your Message" id="message">
-                        <button type="button" onclick="SendEmail()">SEND MESSAGE</button>
+                        <button type="submit">SEND MESSAGE</button>
                     </form>
                 </div>
 
@@ -160,32 +160,39 @@
 
     <script src="index.js"></script>
 
-    <!-- SMTP JS -->
-    <!-- <script src="https://smtpjs.com/v3/smtp.js">
-    </script>
+
     <script>
-        function SendEmail() {
-
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let subject = document.getElementById("subject").value;
-            let message = document.getElementById("message").value;
-
-            let body = "Name: " + name + "</br>Email: " + email + "</br>Subject: " + subject + "</br>Message: " + message;
-
-            Email.send({
-                Host: "smtp.elasticemail.com",
-                Username: "martinbriones27@gmail.com",
-                Password: "5C76ACC49580F5A94DE563114071ECCDC7FA",
-                To: 'martinbriones27@gmail.com',
-                From: "martinbriones27@gmail.com",
-                Subject: "Submission from Contact Form",
-                Body: body
-            }).then(
-                message => alert(message)
-            );
-        }
-    </script> -->
+        const form = document.getElementById('contactForm');
+        const responseMsg = document.getElementById('response');
+    
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          const formData = new FormData(form);
+          const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phonenumber: formData.get('phonenumber'),
+            message: formData.get('message')
+          };
+    
+          fetch('YOUR_SCRIPT_URL_HERE', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(res => res.json())
+          .then(response => {
+            responseMsg.textContent = "Message sent successfully!";
+            form.reset();
+          })
+          .catch(error => {
+            responseMsg.textContent = "Error sending message.";
+            console.error(error);
+          });
+        });
+      </script>
 </body>
 
 </html>
