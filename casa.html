@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aplaya - Room Details Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="room-detail.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="wrapper">
+        <h1><a href="index.html">APLAYA BY POSITADI</a></h1>
+        <i class="fa-solid fa-bars"></i>
+        <nav class="nav">
+          <i class="fa-solid fa-xmark"></i>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#">About</a></li>
+            <li><a href="index.html#room">Rooms</a></li>
+            <li><a href="index.html#contactus">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="main">
+      <section class="room-leftside">
+        <img src="assets/DeluxeRoom.png" alt="" />
+        <section class="room-header-wrapper">
+          <section class="room-name-wrapper">
+            <span class="room-name"> Casa Family </span>
+            <span class="rating-star">
+              <span class="rating-number">5</span>
+              <span class="stars">
+                <ul>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                </ul>
+              </span>
+            </span>
+          </section>
+          <section class="pricing-wrapper">
+            <span class="pricing"
+              >From <span class="price">₱6,000</span>/night</span
+            >
+            <span class="btn-booknow"
+              ><a href="#">Book now <i class="fa-solid fa-arrow-right"></i></a
+            ></span>
+          </section>
+        </section>
+        <section class="included">
+          <span class="included-text"
+            ><i class="fa-solid fa-user"></i>Ammenities</span
+          >
+          <span class="included-list">
+            <ul>
+              <li><i class="fa-solid fa-check"></i>Good for 5 persons</li>
+              <li>
+                <i class="fa-solid fa-check"></i>Maximum 1 additional person
+              </li>
+              <li><i class="fa-solid fa-check"></i>Airconditioned</li>
+              <li>
+                <i class="fa-solid fa-check"></i>Separate Shower and toilet
+              </li>
+              <li><i class="fa-solid fa-check"></i>Kitchen</li>
+              <li><i class="fa-solid fa-check"></i>Adjacent to parking area</li>
+            </ul>
+          </span>
+        </section>
+      </section>
+      <section class="room-rightside">
+        <section class="form">
+          <form action="#" id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required />
+            <input
+              type="text"
+              id="phonenumber"
+              placeholder="Your Phone"
+              required
+            />
+            <input type="email" id="email" placeholder="Your Email" required />
+            <input type="date" id="date" placeholder="" required />
+            <input type="number" id="guest" placeholder="Guest" required />
+            <textarea name="message" id="message"></textarea>
+            <button type="submit">Book Now</button>
+          </form>
+        </section>
+      </section>
+    </section>
+    <footer>
+      <div class="wrapper">
+        <section class="links">
+          <div>
+            <h2>Travenu</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor
+            </p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#room">Rooms</a></li>
+              <li><a href="#contactus">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Other Pages</h4>
+            <ul>
+              <li>Privacy Policy</li>
+              <li>Terms of Use</li>
+              <li>Disclaimer</li>
+              <li>FAQ</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact Info</h4>
+            <ul>
+              <li>Pili Road, Mahabang Buhangin, Pinamalayan Philippines</li>
+              <li><a href="tel:09064694350">09064694350</a></li>
+              <li><a href="mail:positadi@gmail.com">positadi@gmail.com</a></li>
+            </ul>
+          </div>
+        </section>
+        <section class="credit">
+          <p>Made by Lester Garan & Althea Caunceran</p>
+          <p>Copyright © 2024. All rights reserved.</p>
+        </section>
+      </div>
+    </footer>
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxzc7nJJNUOKjiVikbSBzbj9TrIn4vNDkSAFpCsaDxMHre8f2a3rOzHktcFFKQcpvU/exec";
+
+      const form = document.getElementById("contactForm");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = {
+          name: form.name.value,
+          email: form.email.value,
+          phonenumber: form.phonenumber.value,
+          date: form.date.value,
+          guest: form.guest.value,
+          message: form.message.value,
+        };
+
+        await fetch(scriptURL, {
+          mode: "no-cors",
+          method: "POST",
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        alert("Form submitted!");
+        form.reset();
+      });
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>
