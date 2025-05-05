@@ -15,3 +15,5 @@ function goToProductDetails(roomName) {
   window.location.href = `/room-details.html?id=${roomName}`;
   console.log(roomName);
 }
+
+

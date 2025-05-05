@@ -104,7 +104,11 @@
                     </div>
                 </div>
                 <div>
+<<<<<<< HEAD
                     <form action="" id="contactForm">
+=======
+                    <form action="" id="myForm">
+>>>>>>> d2d0646e36da0f781777e515ee733ae61edeeb26
                         <input type="text" placeholder="Your Name" id="name">
                         <input type="text" placeholder="Your Email" id="email">
                         <input type="text" placeholder="Your Phone Number" id="phonenumber">
@@ -175,7 +179,7 @@
             message: formData.get('message')
           };
     
-          fetch('YOUR_SCRIPT_URL_HERE', {
+          fetch('https://script.google.com/macros/s/AKfycbx91g3VpK1_c1OZyN-5nDbylp-7zZoPX7rxHDk2_rI4o5s-VyU8_OWp_hl8IkWHlcw/exec', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
