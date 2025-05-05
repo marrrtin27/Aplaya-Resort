@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <div>
-                    <form action="">
+                    <form action="" id="myForm">
                         <input type="text" placeholder="Your Name" id="name">
                         <input type="text" placeholder="Your Email" id="email">
                         <input type="text" placeholder="Subject" id="subject">
@@ -186,6 +186,33 @@
             );
         }
     </script>
+
+<script>
+
+    const WEB_URL = 'https://script.google.com/macros/s/AKfycby7_0VWbhNg_gMk1pS-Gs1Kzb_kZzgC0Qpz4VUOtt4g5_boz9H4kgsZIW2F_SdFuRo/exec'
+    const form = document.getElementById("myForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        subject: form.subject.value,
+        message: form.message.value,
+      };
+  
+      await fetch("WEB_URL", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+  
+      alert("Form submitted!");
+      form.reset();
+    });
+  </script>
 </body>
 
 </html>
